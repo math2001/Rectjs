@@ -12,15 +12,11 @@ class Rect {
 
     __update({x=null, y=null, width=null, height=null}={}) {
         // the user shouldn't call this function at all
-        if (x != null) {
-            this._x = x
-        } else if (y != null) {
-            this._y = y
-        } else if (width != null) {
-            this._width = width
-        } else if (height != null) {
-            this._height = height
-        }
+        if (x != null) this._x = x
+        if (y != null) this._y = y
+        if (width != null) this._width = width
+        if (height != null) this._height = height
+
         this._right = this._x + this._width
         this._bottom = this._y + this._height
 
@@ -51,6 +47,7 @@ class Rect {
     get topright() { return [this.right, this.top] }
     get bottomright() { return [this.right, this.bottom] }
 
+    // mid-size
     get midtop() { return [this._centerx, this._y] }
     get midbottom() { return [this._centerx, this.bottom] }
     get midleft() { return [this._x, this._centery] }
@@ -61,6 +58,25 @@ class Rect {
     get top() { return this.y }
     get w() { return this._width }
     get h() { return this._height }
+
+
+    //
+    // setters
+    //
+
+    set x(x) { this.__update({x: x}) }
+    set y(y) { this.__update({y: y}) }
+    set width(width) { this.__update({width: width}) }
+    set height(height) { this.__update({height: height}) }
+
+    // aliases
+
+    set left(left) { this.__update({x: left}) }
+    set top(top) { this.__update({y: top}) }
+    set w(width) { this.__update({width: width}) }
+    set h(height) { this.__update({height: height}) }
+
+
 }
 
 module.exports = {
