@@ -35,10 +35,12 @@ class Rect {
 
     get x() { return this._x }
     get y() { return this._y }
-    get height() { return this._height }
-    get width() { return this._width }
     get bottom() { return this._bottom }
     get right() { return this._right }
+
+    get height() { return this._height }
+    get width() { return this._width }
+    get size() { return [this._width, this._height] }
 
     get center() { return [this._centerx, this._centery] }
     get centerx() { return this._centerx }
