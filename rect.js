@@ -46,9 +46,21 @@ class Rect {
     get centerx() { return this._centerx }
     get centery() { return this._centery }
 
+    get topleft() { return [this.left, this.top] }
+    get bottomleft() { return [this.left, this.bottom] }
+    get topright() { return [this.right, this.top] }
+    get bottomright() { return [this.right, this.bottom] }
+
+    get midtop() { return [this._centerx, this._y] }
+    get midbottom() { return [this._centerx, this.bottom] }
+    get midleft() { return [this._x, this._centery] }
+    get midright() { return [this.right, this._centery] }
+
     // aliases
     get left() { return this.x }
     get top() { return this.y }
+    get w() { return this._width }
+    get h() { return this._height }
 }
 
 module.exports = {
