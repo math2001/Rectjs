@@ -71,7 +71,12 @@ class Rect {
 
     // center
 
-    // none
+    set centerx(centerx) { this.__update({x: centerx - Math.round(this._width / 2)}) }
+    set centery(centery) { this.__update({y: centery - Math.round(this._height / 2)}) }
+    set center(center) {
+        this.__update({x: center[0] - Math.round(this._width / 2),
+                       y: center[1] - Math.round(this._height / 2)})
+    }
 
     // corners
 

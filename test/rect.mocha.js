@@ -157,6 +157,32 @@ describe('Test Rect', function () {
 
         context('#centers', function () {
             var rect = new Rect(0, 2, 10, 20)
+            specify('checking centerx', function centerx() {
+                rect.centerx = 20
+                assert.equal(rect.centerx, 20, "rect.centerx")
+                assert.equal(rect.left, 15, "rect.left")
+                assert.equal(rect.right, 25, "rect.right")
+            })
+            specify('checking centery', function centery() {
+                rect.centery = 55
+                assert.equal(rect.centery, 55, "rect.centery")
+                assert.equal(rect.top, 45, "rect.top")
+                assert.equal(rect.bottom, 65, "rect.top")
+            })
+            specify('checking centers', function centers() {
+                rect.center = [5, 1]
+
+                assert.equal(rect.center[0], 5, "rect.center[0]")
+                assert.equal(rect.centerx, 5, "rect.centerx")
+                assert.equal(rect.center[1], 1, "rect.center[1]")
+                assert.equal(rect.centery, 1, "rect.centery")
+
+                assert.equal(rect.left, 0, "rect.left")
+                assert.equal(rect.right, 10, "rect.right")
+
+                assert.equal(rect.top, -9, "rect.top")
+                assert.equal(rect.bottom, 11, "rect.bottom")
+            })
         })
 
         context('#checking-aliases', function () {
