@@ -24,13 +24,8 @@ class Rect {
         this._centery = this._y + Math.round(this._height / 2)
     }
 
-    set x(x) { this.__update({x:x}) }
-    set y(y) { this.__update({y:y}) }
-    set right(x) { this.__update({x:x - this._width}) }
-    set bottom(y) { this.__update({y:y - this._height}) }
-
-    get x() { return this._x }
-    get y() { return this._y }
+    get left() { return this.x }
+    get top() { return this.y }
     get bottom() { return this._bottom }
     get right() { return this._right }
 
@@ -54,8 +49,8 @@ class Rect {
     get midright() { return [this.right, this._centery] }
 
     // aliases
-    get left() { return this.x }
-    get top() { return this.y }
+    get x() { return this._x }
+    get y() { return this._y }
     get w() { return this._width }
     get h() { return this._height }
 
@@ -64,15 +59,31 @@ class Rect {
     // setters
     //
 
-    set x(x) { this.__update({x: x}) }
-    set y(y) { this.__update({y: y}) }
+    set left(left) { this.__update({x: left}) }
+    set top(top) { this.__update({y: top}) }
+    set right(x) { this.__update({x: x - this._width}) }
+    set bottom(y) { this.__update({y: y - this._height}) }
+
     set width(width) { this.__update({width: width}) }
     set height(height) { this.__update({height: height}) }
+    set size(size) { this.__update({height: size[1], width: size[0]}) }
+
+
+    // center
+
+    // none
+
+    // corners
+
+    set topleft(topleft) { this.__update({x: topleft[0], y: topleft[1]}) }
+    set bottomleft(bottomleft) { this.__update({x: bottomleft[0], y: bottomleft[1] - this._height}) }
+    set topright(topright) { this.__update({x: topright[0] - this._width, y: topright[1]}) }
+    set bottomright(bottomright) { this.__update({x: bottomright[0] - this._width, y: bottomright[1] - this._height}) }
 
     // aliases
 
-    set left(left) { this.__update({x: left}) }
-    set top(top) { this.__update({y: top}) }
+    set x(x) { this.__update({x: x}) }
+    set y(y) { this.__update({y: y}) }
     set w(width) { this.__update({width: width}) }
     set h(height) { this.__update({height: height}) }
 
