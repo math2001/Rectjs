@@ -117,7 +117,7 @@ describe('Test Rect', function () {
             })
         })
 
-        context('#corner', function () {
+        context('#corners', function () {
             var rect = new Rect(0, 2, 10, 20)
 
             specify('checking top left', function topLeft() {
@@ -141,6 +141,22 @@ describe('Test Rect', function () {
                 assert.equal(rect.right, 0, "rect.right")
                 assert.equal(rect.bottom, 4, "rect.bottom")
             })
+            specify('checking all of them mixed up', function allOfThemMixedUp() {
+                // far from complete
+                rect.topleft = [1, -1]
+                assert.equal(rect.bottomleft[0], 1, "rect.bottomleft[0]")
+                assert.equal(rect.bottomleft[1], 19, "rect.bottomleft[1]")
+
+                assert.equal(rect.bottomright[0], 11, "rect.bottomright[0]")
+                assert.equal(rect.bottomright[1], 19, "rect.bottomright[1]")
+
+                assert.equal(rect.topright[0], 11, "rect.topright[0]")
+                assert.equal(rect.topright[1], -1, "rect.topright[1]")
+            })
+        })
+
+        context('#centers', function () {
+            var rect = new Rect(0, 2, 10, 20)
         })
 
         context('#checking-aliases', function () {
