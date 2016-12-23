@@ -185,6 +185,36 @@ describe('Test Rect', function () {
             })
         })
 
+        context('#mid-sizes', function () {
+            var rect = new Rect(0, 2, 10, 20)
+            specify('checking midleft', function midleft() {
+                rect.midleft = [-5, 5]
+                assert.equal(rect.left, -5, "rect.left")
+                assert.equal(rect.centery, 5, "rect.centery")
+                assert.equal(rect.top, -5, "rect.top")
+            })
+            specify('checking midrigth', function midrigth() {
+                rect.midright = [8, 3]
+                assert.equal(rect.right, 8, "rect.right")
+                assert.equal(rect.left, -2, "rect.left")
+                assert.equal(rect.centery, 3, "rect.centery")
+                assert.equal(rect.top, -7, "rect.top")
+            })
+            specify('checking midtop', function midtop() {
+                rect.midtop = [4, 2]
+                assert.equal(rect.top, 2, "rect.top")
+                assert.equal(rect.centerx, 4, "rect.centerx")
+                assert.equal(rect.left, 4 - 5, "rect.left")
+            })
+            specify('checking midbottom', function midbottom() {
+                rect.midbottom = [7, -9]
+                assert.equal(rect.bottom, -9, "rect.bottom")
+                assert.equal(rect.top, -29, "rect.top")
+                assert.equal(rect.centerx, 7, "rect.centerx")
+                assert.equal(rect.left, 2, "rect.left")
+            })
+        })
+
         context('#checking-aliases', function () {
             var rect = new Rect(5, 10, 15, 20)
             specify('width', function () {

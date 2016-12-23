@@ -78,6 +78,22 @@ class Rect {
                        y: center[1] - Math.round(this._height / 2)})
     }
 
+    set midleft(midleft) {
+        this.__update({x: midleft[0], y: midleft[1] - Math.round(this._height / 2)})
+    }
+
+    set midright(midright) {
+        this.__update({x: midright[0] - this._width, y: midright[1] - Math.round(this._height / 2)})
+    }
+
+    set midtop(midtop) {
+        this.__update({x: midtop[0] - Math.round(this._width / 2), y: midtop[1]})
+    }
+
+    set midbottom(midbottom) {
+        this.__update({x: midbottom[0] - Math.round(this._width / 2), y: midbottom[1] - this._height})
+    }
+
     // corners
 
     set topleft(topleft) { this.__update({x: topleft[0], y: topleft[1]}) }
